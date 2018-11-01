@@ -26,6 +26,8 @@
 </template>
 
 <script>
+    import { mapState, mapActions } from 'vuex'
+
 	export default {
 		name: "Container",
 		props: {
@@ -63,6 +65,7 @@
 			  this.gameHistory.push({id: uid, name: this.userName, type: this.gameType, time: 0});
 				this.autoFocus(0);
 				this.setTimer();
+				this.setUserName(this.userName);
 			},
 			setTimer () {
 				this.setTime = setInterval(() => {
@@ -83,8 +86,8 @@
 				}
 			},
 			endGame () {
-				clearInterval(this.setTime);
-				this.userName='';
+			clearInterval(this.setTime);
+			this.userName='';
 		  	this.currentId= '';
 		  	this.isStart=false;
 				localStorage.setItem("history", JSON.stringify(this.gameHistory));
@@ -95,7 +98,10 @@
 					const input = this.$refs.text[index];
 					input.focus();
 				});
-			}
+			},
+            ...mapActions([
+                'setUserName'
+            ]),
 		},
 		computed: {
 			sortHistoryList: function () {
