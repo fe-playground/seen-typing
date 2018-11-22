@@ -7,7 +7,8 @@ Node based webserver 중 하나인 express
 `Npm install express —save`
 
 설치하면 Node_modules 폴더가 생기고 package.json에 express가 자동으로 업데이트 됨
-—save 추가 시 설치된 항목을 자동으로 pakage.json에 담아준다. 이는 package.json을 통해 파일을 받는 사람이 같은 환경을 설정할 수 있게 해줌.
+—save 추가 시 설치된 항목을 자동으로 pakage.json에 담아준다. 
+이는 package.json을 통해 파일을 받는 사람이 같은 환경을 설정할 수 있게 해줌.
 
 # Express 기반 웹서버 구동
 
